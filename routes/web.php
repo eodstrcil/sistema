@@ -1,6 +1,8 @@
 <?php
-
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\TipoController;
+use App\Http\Controllers\InstitucionController;
+use App\Http\Controllers\EventoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +30,9 @@ Route::get('/empleado', function () {
 Route::get('/empleado/create',[EmpleadoController::class,'create']);
 */
 Route::resource('empleado', EmpleadoController::class)->middleware('auth');
+Route::resource('tipo', TipoController::class)->middleware('auth');
+Route::resource('institucion', InstitucionController::class)->middleware('auth');
+Route::resource('evento', EventoController::class)->middleware('auth');
 Auth::routes(['register'=>false, 'reset'=>false]);
 
 Route::get('/home', [EmpleadoController::class, 'index'])->name('home');

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -36,7 +36,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('empleado.index') }}">{{__('Empleados')}}</a>
                         <li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tipo.index') }}">{{__('Tipo')}}</a>
+                        <li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('institucion.index') }}">{{__('Institucion')}}</a>
+                        <li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('evento.index') }}">{{__('Evento')}}</a>
+                        <li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://satela.com.ar">Pepe</a>
+                        <li>
                     </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

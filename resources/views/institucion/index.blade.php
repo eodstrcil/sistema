@@ -11,34 +11,32 @@
     </div>
     @endif
 
-    <a href="{{ url('empleado/create') }}" class="btn btn-success">Registrar nuevo empleado</a>
+    <a href="{{ url('institucion/create') }}" class="btn btn-success">Registrar nueva institucion</a>
     <br><br>
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
                 <th>#</th>
-                <th>Foto</th>
                 <th>Nombre</th>
-                <th>Apellido Paterno</th>
-                <th>Apellido Materno</th>
-                <th>Correo</th>
+                <th>URL</th>
+                <th>Direccion</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ( $empleados as $empleado )
+            @foreach ( $instituciones as $institucion )
             <tr>
-                <td>{{ $empleado->id }}</td>
+                <td>{{ $institucion->id }}</td>
+                <td>{{ $institucion->Nombre }}</td>
+                <td>{{ $institucion->URL }}</td>
+                <td>{{ $institucion->Direccion }}</td>
+                <td>{{ $institucion->Latitud }}</td>
+                <td>{{ $institucion->Longitud }}</td>
                 <td>
-                    <img class="img-thumbnail img-fluid" title="{{ $empleado->Foto  }}"; ; width="100px" src="{{ asset('storage') . '/'. $empleado->Foto }}" alt="">
-                </td>
-                <td>{{ $empleado->Nombre }}</td>
-                <td>{{ $empleado->ApellidoPaterno }}</td>
-                <td>{{ $empleado->ApellidoMaterno }}</td>
-                <td>{{ $empleado->Correo }}</td>
-                <td>
-                    <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning">Editar</a> | 
-                    <form action="{{ url('/empleado/' . $empleado->id) }}" class="d-inline" method="post">
+                    <a href="{{ url('/institucion/'.$institucion->id.'/edit') }}" class="btn btn-warning">Editar</a> | 
+                    <form action="{{ url('/institucion/' . $institucion->id) }}" class="d-inline" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
                         <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
@@ -48,7 +46,7 @@
             @endforeach
         </tbody>
     </table>
-    {!! $empleados->links() !!}
+    {!! $instituciones->links() !!}
 </div>
 @endsection
 
