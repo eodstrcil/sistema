@@ -26,8 +26,12 @@
     <select class="form-control" name="IdTipo" id="IdTipo">
         <option value="0">General</option>
         @foreach($tipos as $tipo)
-            @if(isset($evento->IdTipo) == $tipo['id'] )
-                <option selected value="{{ $tipo['id'] }}">{{ $tipo['Tipo']}}</option>
+            @if(isset($evento->IdTipo))
+                @if($evento->IdTipo == $tipo['id'] )
+                    <option selected value="{{ $tipo['id'] }}">{{ $tipo['Tipo']}}</option>
+                @else
+                    <option value="{{ $tipo['id'] }}">{{ $tipo['Tipo']}}</option>
+                @endif
             @else
                 <option value="{{ $tipo['id'] }}">{{ $tipo['Tipo']}}</option>
             @endif
@@ -39,9 +43,13 @@
     <label for="IdInstitucion">Institucion</label>
     <select class="form-control" name="IdInstitucion" id="IdInstitucion">
         <option value="0">Ninguna</option>
-        @foreach($instituciones as $institucion)            
-            @if(isset($evento->IdInstitucion) == $institucion['id'] )
-                <option selected value="{{ $institucion['id'] }}">{{ $institucion['Nombre']}}</option>
+        @foreach($instituciones as $institucion) 
+            @if(isset($evento->IdTipo))           
+                @if($evento->IdInstitucion == $institucion['id'] )
+                    <option selected value="{{ $institucion['id'] }}">{{ $institucion['Nombre']}}</option>
+                @else
+                    <option value="{{ $institucion['id'] }}">{{ $institucion['Nombre']}}</option>
+                @endif
             @else
                 <option value="{{ $institucion['id'] }}">{{ $institucion['Nombre']}}</option>
             @endif

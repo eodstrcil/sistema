@@ -15,7 +15,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $datos['eventos'] = Evento::paginate(2);
+        $datos['eventos'] = Evento::paginate(4);
         return view('evento.index', $datos);
     }
 

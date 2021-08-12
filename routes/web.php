@@ -4,6 +4,8 @@ use App\Http\Controllers\TipoController;
 use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\EventoController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Evento;
+use App\Models\Institucion;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,31 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*
 Route::get('/', function () {
     return view('auth.login');
 });
+*/
+
+Route::get('/', function () {
+
+    $eventos = Evento::all();
+    return view('data', compact('eventos'));
+
+    //return view('data');
+});
+
+Route::get('/detalle/{param?}', function ($param = '0') {
+    $evento = Evento::find($param);
+    $institucion = Institucion::find($evento->IdInstitucion);
+    return view('detalle', compact('evento','param','institucion'));
+});
+
+
+Route::get('/registrarse', function () {
+    return view('registrarse');
+});
+
 
 /*
 Route::get('/', function () {

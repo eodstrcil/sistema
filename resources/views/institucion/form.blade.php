@@ -21,8 +21,13 @@
 </div>
 
 <div class="form-group">
-    <label for="Correo">Dirección</label>
+    <label for="Direccion">Dirección</label>
     <input type="text" class="form-control" name="Direccion" value="{{ isset($institucion->Direccion)?$institucion->Direccion:old('Direccion') }}" id="Direccion">
+</div>
+
+<div class="form-group">
+    <label for="IframeMapa">Script de iFrame - Mapa Google</label>
+    <input type="text" class="form-control" name="IframeMapa" value="{{ isset($institucion->IframeMapa)?$institucion->IframeMapa:old('IframeMapa') }}" id="IframeMapa">
 </div>
 
 <div class="form-group">

@@ -1,9 +1,8 @@
 <?php
 namespace App\Http\Controllers;
-use App\Models\Evento;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DataController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,9 +21,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Evento::all();
-        return view('data', compact('posts'));
-            
-        //return view('home');
+        return view('home');
     }
 }

@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('favicon.png') }}">
 </head>
 <body>
     <div id="app">
@@ -44,9 +47,6 @@
                         <li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('evento.index') }}">{{__('Evento')}}</a>
-                        <li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://satela.com.ar">Pepe</a>
                         <li>
                     </ul>
 
